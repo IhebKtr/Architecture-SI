@@ -1,4 +1,4 @@
-package tn.esprit.autoloccce17.domain;
+package tn.esprit.autoloccce17.Entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,19 +14,20 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Client {
+public class Agence {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idClient;
+    private Long idAgence;
 
     private String nom;
-    private String prenom;
-    private String email;
+    private String ville;
+    private String adresse;
     private String telephone;
-    private String numPermis;
-    private LocalDate dateInscription;
 
-    @OneToMany(mappedBy = "client", cascade = CascadeType.PERSIST)
-    private List<Reservation> reservations = new ArrayList<>();
+    @OneToMany(mappedBy = "agence", fetch = FetchType.LAZY)
+    private List<Vehicule> vehicules = new ArrayList<>();
+
+    @OneToMany(mappedBy = "agence", fetch = FetchType.LAZY)
+    private List<Employe> employes = new ArrayList<>();
 }
