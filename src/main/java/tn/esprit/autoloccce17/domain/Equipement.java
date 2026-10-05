@@ -1,4 +1,4 @@
-package tn.esprit.autoloccce17.Entities;
+package tn.esprit.autoloccce17.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -12,8 +12,8 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class Equipement {
 
     @Id
@@ -22,6 +22,6 @@ public class Equipement {
 
     private String libelle;
 
-    @ManyToMany(mappedBy = "equipements")
+    @ManyToMany(mappedBy = "equipements", fetch = FetchType.LAZY)
     private List<Vehicule> vehicules = new ArrayList<>();
 }

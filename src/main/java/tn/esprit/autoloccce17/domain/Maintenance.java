@@ -1,4 +1,4 @@
-package tn.esprit.autoloccce17.Entities;
+package tn.esprit.autoloccce17.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -11,8 +11,8 @@ import java.time.LocalDate;
 @Entity
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class Maintenance {
 
     @Id
@@ -24,6 +24,6 @@ public class Maintenance {
     private String description;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "vehicule_id")
+    @JoinColumn(name = "idVehicule")
     private Vehicule vehicule;
 }

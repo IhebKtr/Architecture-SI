@@ -1,17 +1,16 @@
-package tn.esprit.autoloccce17.Entities;
+package tn.esprit.autoloccce17.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import tn.esprit.autoloccce17.Entities.Enumeration.RoleEmploye;
 
 @Entity
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class Employe {
 
     @Id
@@ -25,6 +24,6 @@ public class Employe {
     private RoleEmploye role;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "agence_id")
+    @JoinColumn(name = "idAgence")
     private Agence agence;
 }

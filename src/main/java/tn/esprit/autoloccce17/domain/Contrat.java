@@ -1,4 +1,4 @@
-package tn.esprit.autoloccce17.Entities;
+package tn.esprit.autoloccce17.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -29,7 +29,8 @@ public class Contrat {
 
     private Boolean valide;
 
-    @OneToOne(mappedBy = "contrat")
+    @OneToOne
+    @JoinColumn(name = "idReservation")
     private Reservation reservation;
 
     @OneToMany(mappedBy = "contrat", cascade = CascadeType.ALL, orphanRemoval = true)

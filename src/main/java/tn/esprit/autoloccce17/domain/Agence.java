@@ -1,4 +1,4 @@
-package tn.esprit.autoloccce17.Entities;
+package tn.esprit.autoloccce17.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -12,8 +12,8 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class Agence {
 
     @Id
@@ -25,9 +25,9 @@ public class Agence {
     private String adresse;
     private String telephone;
 
-    @OneToMany(mappedBy = "agence", cascade = CascadeType.ALL)
-    private List<Employe> employes = new ArrayList<>();
-
-    @OneToMany(mappedBy = "agence")
+    @OneToMany(mappedBy = "agence", fetch = FetchType.LAZY)
     private List<Vehicule> vehicules = new ArrayList<>();
+
+    @OneToMany(mappedBy = "agence", fetch = FetchType.LAZY)
+    private List<Employe> employes = new ArrayList<>();
 }

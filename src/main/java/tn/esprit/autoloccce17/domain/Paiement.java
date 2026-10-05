@@ -1,11 +1,10 @@
-package tn.esprit.autoloccce17.Entities;
+package tn.esprit.autoloccce17.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import tn.esprit.autoloccce17.Entities.Enumeration.ModePaiement;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -29,7 +28,7 @@ public class Paiement {
     @Enumerated(EnumType.STRING)
     private ModePaiement modePaiement;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "contrat_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idContrat")
     private Contrat contrat;
 }
