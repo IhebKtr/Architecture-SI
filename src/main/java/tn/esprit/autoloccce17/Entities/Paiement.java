@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import tn.esprit.autoloccce17.Entities.Enum.ModePaiement;
 
 @Entity
 @Getter

@@ -9,6 +9,8 @@ import lombok.Setter;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import tn.esprit.autoloccce17.Entities.Enum.CategorieVehicule;
+import tn.esprit.autoloccce17.Entities.Enum.StatutVehicule;
 
 @Entity
 @Table(name = "vehicule")
